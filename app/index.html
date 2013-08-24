@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
@@ -29,8 +30,17 @@
                 </ul>
                 <p>installed.</p>
                 <h3>Enjoy coding! - Yeoman</h3>
-                <div id="select-sheet"></div>
-                <div id="match-field-colum"></div>
+                <div id="select-sheet">
+                    <label for="">Sheet:</label>
+                    <input type="text" name="sheet-name" id="">
+                    <button class="button firstChild open-search-dialog">^</button>
+                    <button class="button firstChild clear-field">X</button>
+                    <input type="hidden" name="sheet-id">
+                    <div class="search-dialog"></div>
+                </div>
+                <div id="match-field-colum">
+
+                </div>
             </div>
         </div>
 
@@ -66,6 +76,7 @@
         <script src="bower_components/sass-bootstrap/js/bootstrap-scrollspy.js"></script>
         <script src="bower_components/sass-bootstrap/js/bootstrap-collapse.js"></script>
         <script src="bower_components/sass-bootstrap/js/bootstrap-tab.js"></script>
+        <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->

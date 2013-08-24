@@ -21,11 +21,15 @@ sugarSmartsheetBackbone.Views.SelectSheetView = Backbone.View.extend({
   		this.render();	
     },
     events: {
-    	"click li": "selected"
+    	"click a": "selected"
     },
 
     render: function(argument) {
-    	this.$el.html(this.template());
+      this.$el.html(this.template())
+      this.$el.dialog({
+        autoOpen: false,
+        modal: true
+      });
     	return this;
     },
 
@@ -34,9 +38,16 @@ sugarSmartsheetBackbone.Views.SelectSheetView = Backbone.View.extend({
     	evt.preventDefault();
     	var model = this.collection.get(item.data("id"));
     	console.log("selected", model);
-    	debugger;
-    	this.selectedCallback && this.selectedCallback(model);
-    }
+      this.selectedCallback && this.selectedCallback(model);
+      this.$el.dialog("close");
+    },
+
+    open: function(){
+      console.log("open");
+
+      this.$el.dialog("open");
+    },
+
 
 
 
