@@ -167,8 +167,12 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/scripts/main.js': [
-                        '<%= yeoman.app %>/scripts/{,*/}*.js',
-                        '.tmp/scripts/{,*/}*.js'
+                        //'<%= yeoman.app %>/scripts/{,*/}*.js',
+                        '<%= yeoman.app %>/scripts/main.js',
+                        '.tmp/scripts/{,*/}*.js',
+                        '<%= yeoman.app %>/scripts/models/*.js',
+                        '<%= yeoman.app %>/scripts/collections/*.js',
+                        '<%= yeoman.app %>/scripts/views/*.js',
                     ]
                 }
             }
@@ -229,17 +233,29 @@ module.exports = function (grunt) {
         },
         copy: {
             dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.{webp,gif}'
-                    ]
-                }]
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.app %>',
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            '*.{ico,txt}',
+                            '.htaccess',
+                            'images/{,*/}*.{webp,gif}'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.app %>/bower_components/jquery-ui/themes/base',
+                        dest: '<%= yeoman.dist %>/styles/jquery-ui/themes/base',
+                        src: [
+                            'jquery-ui.css',
+                            'images/*.*'
+                        ]
+                    },
+                ]
             }
         },
         bower: {
